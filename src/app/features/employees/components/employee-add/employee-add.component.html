@@ -1,0 +1,8 @@
+<h2>Add Employee</h2>
+
+{{ model | json }}
+
+<form (ngSubmit)="onSubmit()">
+    <input type="text" class="form-control" id="Name" required [(ngModel)]="model.Name" name="Name">
+    <button type="submit">Save</button>
+</form>

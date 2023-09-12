@@ -1,0 +1,41 @@
+<h2>Employees</h2>
+
+<div>
+    <a routerLink="add">Add new</a>
+</div>
+
+<div class="card-container">
+
+    <div *ngIf="list.length === 0">
+        <span>No records found.</span>
+    </div>
+
+    <div *ngIf="list.length > 0">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th colspan="2">
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of list">
+                    <td><a [routerLink]="['view', i.Id]">
+                            <span>{{ i.Name }}</span>
+                        </a></td>
+                    <td><a [routerLink]="['edit', i.Id]">
+                            <span>Edit</span>
+                        </a></td>
+                    <td><button type="button" (click)="onDelete(i.Id)">
+                            <span>Delete</span>
+                        </button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
